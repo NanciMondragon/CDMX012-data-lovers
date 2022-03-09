@@ -14,6 +14,24 @@ describe('Todas las peliculas en pantalla', () => {
     expect(typeof mostrarFilm).toBe('function');
   });
 
+  let films= [
+    {
+      id: '2baf70d1-42bb-4437-b551-e5fed5a87abe',
+      title: 'Castle in the Sky',
+      director: 'Hayao Miyazaki',
+      producer: 'Isao Takahata',
+      poster: 'https://static.wikia.nocookie.net/studio-ghibli/images/c/c1/Castle_in_the_Sky.jpg',
+      release_date: '1986',
+    },
+    
+  ];  
+    describe('Filtro para mostrar films', () => {
+    test('Filtro Mostrar en pantalla films', () => {
+      expect (mostrarFilm (films))
+      
+    });
+});
+
   describe('filtroDirectores', () => {
     it('Comprobar que es una función', () => {
       expect(typeof filtroDirectores).toBe('function');
@@ -121,7 +139,7 @@ describe('Todas las peliculas en pantalla', () => {
       expect(typeof buscador).toBe('function');
     });
 
-    let  title = [
+    let  films = [
       {
         title: 'My Neighbor Totoro',
       },
@@ -131,8 +149,6 @@ describe('Todas las peliculas en pantalla', () => {
       
     ];
     it('totoro busqueda tot', () => {
-      expect (buscador (title, 'My Neighbor Totoro').toLowerCase()).toEqual([{ title: 'tot'.includes(value.toLowerCase())}])
-    })
-  });
-
-    
+      expect(buscador(films, 'title','Totoro')).toEqual([{title:'My Neighbor Totoro'}])
+    });
+});
